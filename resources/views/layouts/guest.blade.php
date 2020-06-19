@@ -20,8 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         
         <!--styles-->
-        <link href="{{ secure_asset('/css/app.css') }} rel="stylesheet">
-        <link href="{{ secure_asset('/css/user.css') }} rel="stylesheet">
+        <link href="{{ secure_asset('/css/guest.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
         
         <!--bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">

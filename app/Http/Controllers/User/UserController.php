@@ -6,12 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Userlist;
 use Illuminate\Support\Facades\Auth;
+use App\Contactform;
 
 class UserController extends Controller
 {
     
-    public function mypage() {
-        return view('user.mypage');
+    public function mypage(Request $request) {
+        
+        $guest_contact = $request->guest_contact;
+        //検索されたら取得
+        if($guest_contact != '') {
+            $contacts = Contactform::where('type', 'name', 'address', $guest_contact)->get();
+            //検索されなかったら全て取得
+        }else {
+            $contacts = Contactform::all();
+        }
+        
+        return view('user.mypage', ['contacts' => $contacts, 'guest_contact' => $guest_contact]);
     }
     
     public function profile() {

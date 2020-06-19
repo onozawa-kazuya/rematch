@@ -8,18 +8,23 @@
     <div class="row">
         <div class="col-md-offset-1 mx-auto">
             <div class="card" style="width: 40rem;">
-              <img src="#" class="card-img-top" alt="#">
-              <div class="card-body text-center">
-                <h5 class="card-title">会社名</h5>
-                <p class="card-text">所在地</p>
-                <p class="card-text">対応エリア</p>
-                <p class="card-text">設立年月日</p>
-                <p class="card-text">対応可能エリア</p>
-                <p class="card-text">対応可能設備</p>
-                <p class="card-text">対応可能建物種別</p>
-                <p class="card-text">会社紹介</p>
-                <a href="{{ url('guest/contactform')}}" class="btn btn-danger">お問い合わせ<br>ページ</a>
-              </div>
+                @if($userlist->image_path)
+                <img src="{{ asset('storage/image/' . '$userlist->image_path') }}" class="card-img-top">
+                @else
+                <p>No image</p>
+                @endif
+              
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ $userlist->company }}</h5>
+                    <p class="card-text">{{ $userlist->phone }}</p>
+                    <p class="card-text">{{ $userlist->email }}</p>
+                    <p class="card-text">{{ $userlist->establishment }}</p>
+                    <p class="card-text">{{ $userlist->area }}</p>
+                    <p class="card-text">{{ $userlist->equipment }}</p>
+                    <p class="card-text">{{ $userlist->building }}</p>
+                    <p class="card-text">{{ $userlist->introduction }}</p>
+                    <a href="{{ url('guest/contactform')}}" class="btn btn-danger">お問い合わせ<br>ページ</a>
+                </div>
             </div>
         </div>
     </div>

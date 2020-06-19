@@ -15,9 +15,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
+                        @foreach($contacts as $contactlist)
+                            <tr>
+                                <td>{{ $contactlist->type }}</td>
+                                <td>{{ $contactlist->name }}</td>
+                                <td>{{ $contactlist->address }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 
