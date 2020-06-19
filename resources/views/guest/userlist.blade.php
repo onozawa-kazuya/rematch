@@ -57,7 +57,7 @@
             @foreach($posts as $userlist)
               <div class="row py-2 border-bottom text-center">
                 <div class="col-sm-3">
-                  <a href="{{ route('userlist_detail'), [$userlist->$id] }}">{{ $userlist->company }}</a>
+                  <a href="{{ route('userlist_detail', ['id' => $userlist->id]) }}">{{ $userlist->company }}</a>
                 </div>
                 <div class="col-sm-3">
                   {{ $userlist->area }}
@@ -75,42 +75,4 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    <!--<div class="container">-->
-    <!--    <div class="row">-->
-    <!--        <div class="col-md-8 mx-auto">-->
-    <!--            <h1>業者一覧</h1>-->
-    <!--            <table class="table table-striped">-->
-    <!--              <tbody>-->
-    <!--                @foreach($posts as $userlist)-->
-    <!--                  <tr>-->
-    <!--                    <td scope="row">{{ $userlist->id }}</td>-->
-    <!--                    <td>-->
-    <!--                      @if ($userlist->image_path)-->
-    <!--                      <img src="{{ asset('storage/image/' . $userlist->image_path) }}">-->
-    <!--                      @else-->
-    <!--                      <p>No image</p>-->
-    <!--                      @endif-->
-    <!--                    </td>-->
-    <!--                    <td><a href="{{ route('guest.userlist_detail', [$userlist->id]) }}">{{ $userlist->company }}</a></td>-->
-    <!--                    <td>{{ $userlist->area }}</td>-->
-    <!--                    <td>{{ $userlist->equipment }}</td>-->
-    <!--                    <td>{{ $userlist->building }}</td>-->
-    <!--                  </tr>-->
-    <!--                @endforeach-->
-    <!--              </tbody>-->
-    <!--            </table>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
 @endsection
