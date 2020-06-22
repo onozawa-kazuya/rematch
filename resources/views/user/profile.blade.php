@@ -74,39 +74,39 @@
                                   <label class="col-md-2">対応可能<br>設備</label>
                                   <div class="col-md-3">
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-1" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-1" name="equipment1">
                                           <label class="custom-control-label" for="custom-radio-1">第一類</label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-2" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-2" name="equipment2">
                                           <label class="custom-control-label" for="custom-radio-2">第二類</label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-3" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-3" name="equipment3">
                                           <label class="custom-control-label" for="custom-radio-3">第三類</label>
                                       </div>
                                   </div>
                                   <div class="col-md-3">
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-4" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-4" name="equipment4">
                                           <label class="custom-control-label" for="custom-radio-4">第四類</label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-5" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-5" name="equipment5">
                                           <label class="custom-control-label" for="custom-radio-5">第五類</label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-6" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-6" name="equipment6">
                                           <label class="custom-control-label" for="custom-radio-6">第六類</label>
                                       </div>
                                   </div>
                                   <div class="col-md-3">
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-7" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-7" name="equipment7">
                                           <label class="custom-control-label" for="custom-radio-7">第七類</label>
                                       </div>
                                       <div class="custom-control custom-radio">
-                                          <input type="checkbox" class="custom-control-input" id="custom-radio-8" name="equipment">
+                                          <input type="checkbox" class="custom-control-input" id="custom-radio-8" name="equipment8">
                                           <label class="custom-control-label" for="custom-radio-8">特類</label>
                                       </div>
                                   </div>

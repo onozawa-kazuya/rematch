@@ -14,14 +14,14 @@ class AddRegisterToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $tables->string('address')->nullable->after(name);
-            $tables->string('phone')->nullable->after(address);
-            $tables->string('fax')->nullable->after(phone);
-            $tables->string('president')->nullable->after(email);
-            $tables->string('establishment')->nullable->after(president);
-            $tables->string('number')->nullable->after(establishment);
-            $tables->string('organization')->nullable->after(number);
-            $tables->string('notification')->nullable->after(organization);
+            $table->string('address')->nullable()->after('name');
+            $table->string('phone')->nullable()->after('address');
+            $table->string('fax')->nullable()->after('phone');
+            $table->string('president')->nullable()->after('email');
+            $table->string('establishment')->nullable()->after('president');
+            $table->string('number')->nullable()->after('establishment');
+            $table->string('organization')->nullable()->after('number');
+            $table->string('notification')->nullable()->after('organization');
         });
     }
 

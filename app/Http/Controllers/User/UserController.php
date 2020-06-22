@@ -46,8 +46,39 @@ class UserController extends Controller
             $userlist->image_path = null;
         }
         
+        $equipment = [];
+        
+        if (isset($form['equipment1'])) {
+            $equipment[] = 1;
+        }
+        if (isset($form['equipment2'])) {
+            $equipment[] = 2;
+        }
+        if (isset($form['equipment3'])) {
+            $equipment[] = 3;
+        }
+        if (isset($form['equipment4'])) {
+            $equipment[] = 4;
+        }
+        if (isset($form['equipment5'])) {
+            $equipment[] = 5;
+        }
+        if (isset($form['equipment6'])) {
+            $equipment[] = 6;
+        }
+        if (isset($form['equipment7'])) {
+            $equipment[] = 7;
+        }
+        if (isset($form['equipment8'])) {
+            $equipment[] = 8;
+        }
+        
+        $userlist->equipment = implode(',', $equipment);
+        
+        
         unset($form['_token']);
         unset($form['image']);
+        unset($form['equipment1'], $form['equipment2'], $form['equipment3'], $form['equipment4'], $form['equipment5'], $form['equipment6'], $form['equipment7'], $form['equipment8']);
         
         //データべースに保存
         $userlist->fill($form);
@@ -55,6 +86,13 @@ class UserController extends Controller
         $userlist->save();
         
         return redirect('user/profile');
+    }
+    
+    public function contact_detail(Request $request, $id, Contactform $contactform) {
+        
+        $contactform = Contactform::find($id);
+        
+        return view('user.contact_detail', ['contactform' => $contactform]);
     }
     
 }

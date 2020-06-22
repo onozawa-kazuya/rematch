@@ -41,25 +41,14 @@ class GuestController extends Controller
             $query->where('company', 'like', '%'.$search4.'%')->get();
         }
             
-        //20件ずつ表示
-        $posts = $query->paginate(20);
+        //5件ずつ表示
+        $posts = $query->paginate(5);
         
         return view('guest.userlist', ['posts' => $posts]);
         
         
         }
         
-        
-    //     $cond_title = $request->cond_title;
-    //     //検索されたら取得
-    //     if($cond_title != '') {
-    //         $posts = Userlist::where('company', 'area', 'equipment', 'building', $cond_title)->get();
-    //     //検索されなかったら全て取得
-    //     }else {
-    //         $posts = Userlist::all();
-    //     }
-    //     return view('guest.userlist', ['posts' => $posts, 'cond_title' => $cond_title]);
-    
     
     public function userlist_detail(Request $request,$id,Userlist $userlist) {
         
@@ -79,10 +68,10 @@ class GuestController extends Controller
         $contactform = new Contactform($request->all());
         $type = '';
         if(isset($request->type)) {
-            $type = implode(', ',$request->type);
+            $type = implode(', ', $request->type);
         }
         
-        return view('guest.complete', compact('contactform', 'type'));
+        return view('guest.confirm', compact('contactform', 'type'));
     }
     
     

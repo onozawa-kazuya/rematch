@@ -3,29 +3,30 @@
 @section('title', '設備業者一覧')
 
 @section('content')
+  <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <div class="text-center my-4">
           <h3 class="brown border p-2">設備業者検索</h3>
         </div>
-          {!! Form::open(['url' => 'guest.userlist', 'method' => 'get']) !!}
+          {!! Form::open(['url' => 'guest/userlist', 'method' => 'get']) !!}
             <div class="form-group">
               {!! Form::label('area', '対応エリア:') !!}
               {!! Form::select('area', ['指定なし' => '指定なし'] + Config::get('prefs'), '指定なし' ) !!}
             </div>
             <div class="form-group">
               {!! Form::label('equipment', '設備:') !!}
-              {!! Form::select('equipment', ['指定なし' => '指定なし'] + Config::get('equipments.'), '指定なし') !!}
+              {!! Form::select('equipment', ['指定なし' => '指定なし'] + Config::get('equipments'), '指定なし') !!}
             </div>
             <div class="form-group">
               {!! Form::label('building', '建物種別:') !!}
-              {!! Form::select('building', ['指定なし' => '指定なし'] + Config::get('buildings.'), '指定なし') !!}
+              {!! Form::select('building', ['指定なし' => '指定なし'] + Config::get('buildings'), '指定なし') !!}
             </div>
             <div class="form-group">
               {!! Form::label('text', '設備業者名:') !!}
               {!! Form::text('company', '', ['class' => 'form-control', 'placeholder' => '指定なし']) !!}
             </div>
-            {!! Form::submit('検索', 'btn btn-primary btn-block') !!}
+            {!! Form::submit('検索', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
       </div>
       
@@ -63,7 +64,9 @@
                   {{ $userlist->area }}
                 </div>
                 <div class="col-sm-3">
-                  {{ $userlist->equipment }}
+                  @foreach(explode(',', $userlist->equipment) as $equipment)
+                  <p>{{ Config::get('equipments')[$equipment] }}</p>
+                  @endforeach
                 </div>
                 <div class="col-sm-3">
                   {{ $userlist->building }}
@@ -71,8 +74,9 @@
               </div>
             @endforeach
           </div>
-          {{ $posts->appends(request()->input())->render('pagination::bootstrap-4') }}
+          {{ $posts->links() }}
         </div>
       </div>
     </div>
+  </div>
 @endsection

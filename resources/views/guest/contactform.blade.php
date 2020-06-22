@@ -21,8 +21,7 @@
                     </div>
                     @endif
                     
-                    {!! Form::open(['url' => 'guest/confirm',
-                                'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['url' => 'guest/confirm','class' => 'form-horizontal']) !!}
                                 
                     <div class="form-group {{ $errors->has('type') ? ' has-error' : '' }}">
                         {!! Form::label('type', 'お問い合わせ種別:', ['class' => 'col-sm-2 control-label']) !!}
