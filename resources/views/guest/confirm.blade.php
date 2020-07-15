@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">お問い合わせ</div>
+                    <div class="panel-heading">お問い合わせ内容確認</div>
                     <div class="panel-body">
                         
                     <p>誤りがなければ送信ボタンを押してください</p>

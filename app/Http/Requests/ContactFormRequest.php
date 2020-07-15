@@ -27,7 +27,7 @@ class ContactFormRequest extends FormRequest
             'type' => 'required',
             'type.*' => 'in:相談したい,点検して欲しい,お見積もりが欲しい,その他',
             'name' => 'required|max:15',
-            'phone' => 'required',
+            'phone' => 'required|numeric',
             'email' => 'required|email',
             'address' => 'required|max:20',
             'equipment' => 'required|max:30',

@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/user.css": "/css/user.css",
     "/css/guest.css": "/css/guest.css",
+    "/css/front.css": "/css/front.css",
     "/css/app.css": "/css/app.css"
 }

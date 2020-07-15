@@ -21,69 +21,65 @@
         
         <!--styles-->
         <link href="{{ secure_asset('/css/guest.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('/css/app.css') }}" rel="stylesheet">
         
         <!--bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     
     
-    <body>
-      <a class="display-4" style="padding-left: 1.5rem;">ReMatCh</a>
+    <header>
+      <h1 class="title">ReMatCh<a href="{{ url('guest/front') }}"></a></h1>
+    </header>
       
-      <!--左側-->
-        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-secondary mb-4">
+        <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light p-4">
           
           <div class="collapse navbar-collapse" id="Navbar">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mx-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">ReMatChとは？</a>
+                <a class="nav-link" href="{{ url('guest/front') }}">HOME</a>
               </li>
               
               <li class="nav-item active">
-                <a class="nav-link" href="#">登録業者一覧</a>
+                <a class="nav-link" href="#">GUIDE</a>
               </li>
               
-              <li class="nav-item active">
-                <a class="nav-link" href="#">使い方ガイド</a>
-              </li>
-              <!--<li class="nav-item dropdown">-->
-              <!--  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">dropdown</a>-->
-              <!--  <div class="dropdown-menu" aria-labelledby="dropdown01">-->
-              <!--    <a class="dropdown-item" href="#">リンク1</a>-->
-              <!--    <a class="dropdown-item" href="#">リンク2</a>-->
-              <!--    <a class="dropdown-item" href="#">リンク3</a>-->
-              <!--  </div>-->
-              <!--</li>-->
-            </ul>
-          　
-              <!--右側-->
-              <ul class="navbar-nav ml-auto">
                 @guest
-                <!--ログイン-->
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                
+                  <!--ログイン-->
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
                 @else
-                <!--ログアウト-->
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-                    @csrf
-                  </form>
-                </li>
+                  <!--ログアウト-->
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user/mypage')}}">MY PAGE</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                      @csrf
+                    </form>
+                  </li>
                 @endguest
-              </ul>
+            </ul>
           </div>
         </nav>
         
-        <main class="py-4">
-            @yield('content')
-        </main>
-        
+    <body>
+      <div id="wrapper">
+        @yield('content')
+      </div>
     </body>
+    
+        <footer>
+          <h4 class="text-center">ReMatCh<a href="#"></a>
+          <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
+          </h4>
+        </footer>
+    
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Userlist;
 use Illuminate\Support\Facades\Auth;
 use App\Contactform;
+use App\User;
 
 class UserController extends Controller
 {
@@ -16,26 +17,35 @@ class UserController extends Controller
         $guest_contact = $request->guest_contact;
         //検索されたら取得
         if($guest_contact != '') {
-            $contacts = Contactform::where('type', 'name', 'address', $guest_contact)->get();
+            $contacts = Contactform::where('type', 'name', 'address', $guest_contact)->get()->paginate(5);
             //検索されなかったら全て取得
         }else {
-            $contacts = Contactform::all();
+            $contacts = Contactform::paginate(5);
         }
+        
+        
         
         return view('user.mypage', ['contacts' => $contacts, 'guest_contact' => $guest_contact]);
     }
     
+    
     public function profile() {
         
-        return view('user.profile');
+        $userlist = Userlist::where('user_id', Auth::id())->first();
+        
+        return view('user.profile', ['userlist' => $userlist]);
     }
+    
     
     public function profilecreate(Request $request) {
 
         //バリデーション
         $this->validate($request, Userlist::$rules);
         
-        $userlist = new Userlist;
+        $userlist = Userlist::where('user_id', Auth::id())->first();
+        if($userlist === null) {
+          $userlist = new Userlist;  
+        }
         $form = $request->all();
         
         //画像があれば保存
@@ -46,6 +56,7 @@ class UserController extends Controller
             $userlist->image_path = null;
         }
         
+        //
         $equipment = [];
         
         if (isset($form['equipment1'])) {
@@ -76,9 +87,45 @@ class UserController extends Controller
         $userlist->equipment = implode(',', $equipment);
         
         
+        $area = [];
+        
+        if (isset($form['area'])) {
+            $area[] = $form['area'];
+        }
+        if (isset($form['area2'])) {
+            $area[] = $form['area2'];
+        }
+        if (isset($form['area3'])) {
+            $area[] = $form['area3'];
+        }
+        
+        $userlist->area = implode(',', $area);
+        
+        $building = [];
+        
+        if (isset($form['building'])) {
+            $building[] = $form['building'];
+        }
+        if (isset($form['building2'])) {
+            $building[] = $form['building2'];
+        }
+        if (isset($form['building3'])) {
+            $building[] = $form['building3'];
+        }
+        
+        $userlist->building = implode(',', $building);
+        
+        
         unset($form['_token']);
         unset($form['image']);
         unset($form['equipment1'], $form['equipment2'], $form['equipment3'], $form['equipment4'], $form['equipment5'], $form['equipment6'], $form['equipment7'], $form['equipment8']);
+        unset($form['area'], $form['area2'], $form['area3']);
+        unset($form['building'], $form['building2'], $form['building3']);
+        
+        
+        
+        
+        
         
         //データべースに保存
         $userlist->fill($form);
@@ -88,11 +135,29 @@ class UserController extends Controller
         return redirect('user/profile');
     }
     
+    
     public function contact_detail(Request $request, $id, Contactform $contactform) {
         
         $contactform = Contactform::find($id);
         
         return view('user.contact_detail', ['contactform' => $contactform]);
     }
+    
+    
+    public function withdrawal(Request $request) {
+        
+        $user = User::where('id', Auth::id())->first();
+        
+        $user->delete();
+        
+        return redirect('/guest/front');
+    }
+    
+    public function withdrawalConfirm(Request $request) {
+        
+        return view('user.withdrawal');
+    }
+    
+    
     
 }

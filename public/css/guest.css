@@ -1,6 +1,66 @@
-img {
-  width: 150px;
-  height: 100px;
+html {
+  height: 100%;
+}
+
+header {
+  height: 12rem;
+  position: relative;
+}
+
+.title {
+  font-family: fantasy;
+  text-shadow: 2px 2px 10px #777;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 750px) {
+  .title {
+    font-size: 25px;
+  }
+}
+
+li {
+  padding-left: 20px;
+  font-family: cursive;
+  font-size: 25px;
+}
+
+body {
+  background-color: #f5f5f5 !important;
+  height: 100%;
+}
+
+#wrapper {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  height: auto !important;
+}
+
+footer {
+  background-color: #d3d3d3;
+  position: absolute;
+  width: 100%;
+}
+
+h4 {
+  font-family: fantasy;
+  text-shadow: 2px 2px 10px #777;
+  padding: 5rem;
+}
+
+.copyright {
+  font-size: 7px;
 }
 
 .panel-heading {
@@ -11,5 +71,52 @@ img {
 
 .panel {
   background-color: #f5f5f5;
+}
+
+.help-block {
+  color: #ff0000 !important;
+}
+
+.contentTitle {
+  text-align: center !important;
+}
+
+.card {
+  margin: 100px 0 100px 0 !important;
+}
+
+.card-header {
+  background-color: #dcdcdc !important;
+}
+
+.card-img-top {
+  height: 10rem !important;
+  width: 40% !important;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
+th,
+td {
+  border: none !important;
+}
+
+.area {
+  width: 20%;
+}
+
+.building {
+  width: 25%;
+}
+
+@media (max-width: 750px) {
+  .table {
+    font-size: 12px;
+  }
+
+  .table tr td {
+    padding: 0;
+  }
 }
 

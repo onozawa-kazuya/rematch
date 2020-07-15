@@ -20,7 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         
         <!--styles-->
-        <link href="{{ secure_asset('/css/user.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('/css/front.css') }}" rel="stylesheet">
         
         <!--bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -33,17 +33,14 @@
       
         <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light p-4">
           
-          <div class="collapse navbar-collapse" id="Navbar">
+          <div class="navbar-collapse" id="Navbar">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url('guest/front') }}">HOME</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url('user/mypage') }}">MY PAGE</a>
-              </li>
               
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url('user/profile') }}">PROFILE</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">GUIDE</a>
               </li>
               
                 @guest
@@ -52,6 +49,10 @@
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
                 @else
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user/mypage') }}">MY PAGE</a>
+                  </li>
+                  
                   <!--ログアウト-->
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -62,14 +63,7 @@
                       @csrf
                     </form>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('withdrawal_confirm') }}">
-                      退会
-                    </a>
-                  </li>
-                  
                 @endguest
-                
             </ul>
           </div>
         </nav>
@@ -77,12 +71,13 @@
     <body>
       <div id="wrapper">
         @yield('content')
+    
+        <footer>
+          <h4 class="footer-text">ReMatCh<a href="#"></a>
+          <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
+          </h4>
+        </footer>
       </div>
     </body>
-    <footer>
-      <h4 class="text-center">ReMatCh<a href="#"></a>
-      <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
-      </h4>
-    </footer>            
     
 </html>

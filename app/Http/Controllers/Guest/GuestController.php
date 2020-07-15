@@ -23,30 +23,29 @@ class GuestController extends Controller
         
         //指定なし以外を選択した場合、選択したエリアと一致するカラムを取得
         if($request->has('area') && $search1 != ('指定なし')) {
-            $query->where('area', $search1)->get();
+            $query = $query->where('area', 'like', '%'.$search1.'%');
         }
             
         //指定なし以外を選択した場合、選択した設備と一致するカラムを取得
         if($request->has('equipment') && $search2 != ('指定なし')) {
-            $query->where('equipment', $search2)->get();
+            $query = 
+            $query->where('equipment', 'like', '%'.$search2.'%');
         }
             
         //指定なし以外を選択した場合、選択した建物と一致するカラムを取得
         if($request->has('building') && $search3 != ('指定なし')) {
-            $query->where('building', $search3)->get();
+            $query = $query->where('building', 'like', '%'.$search3.'%');
         }
             
         //入力した文字列含むカラムを取得
         if($request->has('company') && $search4 != ('指定なし')) {
-            $query->where('company', 'like', '%'.$search4.'%')->get();
+            $query = $query->where('company', 'like', '%'.$search4.'%');
         }
             
         //5件ずつ表示
-        $posts = $query->paginate(5);
+        $posts = $query->join('users', 'userlists.user_id', '=', 'users.id')->where('users.withdrawal', 0)->paginate(5);
         
         return view('guest.userlist', ['posts' => $posts]);
-        
-        
         }
         
     
@@ -57,6 +56,7 @@ class GuestController extends Controller
         return view('guest.userlist_detail', ['userlist' => $userlist]);
     }
     
+    
     public function contactform() {
         
         $types = Contactform::$types;
@@ -65,6 +65,7 @@ class GuestController extends Controller
     
     
     public function confirm(ContactFormRequest $request) {
+        
         $contactform = new Contactform($request->all());
         $type = '';
         if(isset($request->type)) {
@@ -76,6 +77,7 @@ class GuestController extends Controller
     
     
     public function complete(ContactFormRequest $request) {
+        
         $input = $request->except('action');
         if($request->action === '戻る') {
             return redirect()->action('GuestController@contactform')->withInput($input);
@@ -90,7 +92,14 @@ class GuestController extends Controller
         //二重送信を防ぐ
         $request->session()->regenerateToken();
         
+        
         return view('guest.complete');
+    }
+    
+    public function front() {
+        
+        return view('guest.front');
+        
     }
     
 }

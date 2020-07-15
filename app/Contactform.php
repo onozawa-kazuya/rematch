@@ -13,4 +13,8 @@ class Contactform extends Model
         static $types = [
             '相談したい', '点検して欲しい', 'お見積もりが欲しい', 'その他',
         ];
+        
+        public function contactdates() {
+            return $this->hasMany('App\ContactDate');
+        }
 }

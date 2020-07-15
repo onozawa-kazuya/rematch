@@ -20,11 +20,15 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
     Route::get('/mypage', 'User\UserController@mypage');
     Route::get('/profile', 'User\UserController@profile');
     Route::post('/profile', 'User\UserController@profilecreate');
+    Route::post('/withdrawal', 'User\UserController@withdrawal')->name('withdrawal');
+    Route::get('/withdrawal_confirm', 'User\UserController@withdrawalConfirm')->name('withdrawal_confirm');
+    Route::get('/contact_detail/{id}', 'User\UserController@contact_detail')->name('contact_detail');
 });
 
 
 
 Route::group(['prefix' => 'guest'], function() {
+    Route::get('/front', 'Guest\GuestController@front')->name('front');
     Route::get('/userlist', 'Guest\GuestController@userlist');
     Route::get('/userlist_detail/{id}', 'Guest\GuestController@userlist_detail')->name('userlist_detail');
     Route::get('/contactform', 'Guest\GuestController@contactform');

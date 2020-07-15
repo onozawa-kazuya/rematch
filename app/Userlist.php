@@ -11,7 +11,7 @@ class Userlist extends Model
     public static $rules = array(
         'company' => 'required',
         'address' => 'required',
-        'phone' => 'required',
+        'phone' => 'required|max:11',
         'establishment' => 'required',
         'area' => 'required',
         'equipment' => 'required_without_all:equipment1,equipment2,equipment3,equipment4,equipment5,equipment6,equipment7,equipment8',
