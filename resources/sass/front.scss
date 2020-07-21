@@ -66,7 +66,11 @@ header {
     }
 }
 
-
+ul {
+    @include sp {
+        text-align: center;
+    }
+}
 
 
 li {
@@ -75,6 +79,17 @@ li {
     font-size: 25px;
 }
 
+.nav-link {
+    @include sp {
+        font-size: 17px;
+    }
+}
+
+.navbar-nav {
+    @include sp {
+        flex-direction: inherit!important;
+    }
+}
 
 
 

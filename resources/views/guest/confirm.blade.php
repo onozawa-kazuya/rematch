@@ -58,6 +58,8 @@
                     
                     {!! Form::submit('戻る',['name'=> 'action', 'class' => 'btn']) !!}
                     {!! Form::submit('送信',['name'=> 'action', 'class' => 'btn btn-primary']) !!}
+                    
+                    {!! Form::hidden('userlist_id', $contactform->userlist_id) !!}
                     {!! Form::close() !!}
                     
                     </div>

@@ -14,24 +14,20 @@ class UserController extends Controller
     
     public function mypage(Request $request) {
         
-        $guest_contact = $request->guest_contact;
-        //検索されたら取得
-        if($guest_contact != '') {
-            $contacts = Contactform::where('type', 'name', 'address', $guest_contact)->get()->paginate(5);
-            //検索されなかったら全て取得
-        }else {
-            $contacts = Contactform::paginate(5);
-        }
-        
-        
-        
-        return view('user.mypage', ['contacts' => $contacts, 'guest_contact' => $guest_contact]);
+        $user = Auth::user();
+        $userlist_id = $user->userlist->id;
+        $contacts = Contactform::where('userlist_id', $userlist_id)->paginate(5);
+            
+        return view('user.mypage', ['contacts' => $contacts]);
     }
     
     
     public function profile() {
         
         $userlist = Userlist::where('user_id', Auth::id())->first();
+        if($userlist === null) {
+          $userlist = new Userlist;  
+        }
         
         return view('user.profile', ['userlist' => $userlist]);
     }
@@ -56,7 +52,7 @@ class UserController extends Controller
             $userlist->image_path = null;
         }
         
-        //
+        
         $equipment = [];
         
         if (isset($form['equipment1'])) {
@@ -123,10 +119,6 @@ class UserController extends Controller
         unset($form['building'], $form['building2'], $form['building3']);
         
         
-        
-        
-        
-        
         //データべースに保存
         $userlist->fill($form);
         $userlist->user_id = Auth::id();
@@ -157,7 +149,4 @@ class UserController extends Controller
         
         return view('user.withdrawal');
     }
-    
-    
-    
 }

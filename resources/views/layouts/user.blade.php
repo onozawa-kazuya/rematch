@@ -28,21 +28,18 @@
     
     
     <header>
-      <h1 class="title">ReMatCh<a href="{{ url('guest/front') }}"></a></h1>
+      <h1><a class="title" href="{{ url('guest/front') }}">ReMatCh</a></h1>
     </header>
       
-        <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light p-4">
+        <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
           
-          <div class="collapse navbar-collapse" id="Navbar">
+          <div class="navbar-collapse" id="Navbar">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url('guest/front') }}">HOME</a>
-              </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url('user/mypage') }}">MY PAGE</a>
               </li>
               
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url('user/profile') }}">PROFILE</a>
               </li>
               

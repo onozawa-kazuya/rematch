@@ -43,7 +43,7 @@ class GuestController extends Controller
         }
             
         //5件ずつ表示
-        $posts = $query->join('users', 'userlists.user_id', '=', 'users.id')->where('users.withdrawal', 0)->paginate(5);
+        $posts = $query->join('users', 'userlists.user_id', '=', 'users.id')->addSelect('*', 'userlists.id as id')->paginate(5);
         
         return view('guest.userlist', ['posts' => $posts]);
         }

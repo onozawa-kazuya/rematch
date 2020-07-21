@@ -117,7 +117,7 @@
                             {!! Form::submit('確認', ['class' => 'btn btn-secondary']) !!}
                         </div>
                     </div>
-                    
+                    {!! Form::hidden('userlist_id', request()->id) !!}
                     {!! Form::close() !!}
                     
                 </div>

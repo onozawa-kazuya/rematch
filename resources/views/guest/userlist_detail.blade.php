@@ -57,7 +57,7 @@
                                 <td>{{ $userlist->introduction }}</td>
                             </tr>
                         </table>
-                        <a href="{{ url('guest/contactform')}}" class="btn btn-secondary">お問い合わせ<br>ページ</a>
+                        <a href="{{ url('guest/contactform/' . $userlist->id) }}" class="btn btn-secondary">お問い合わせ<br>ページ</a>
                 </div>
             </div>
         </div>

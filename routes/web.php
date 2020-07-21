@@ -31,7 +31,7 @@ Route::group(['prefix' => 'guest'], function() {
     Route::get('/front', 'Guest\GuestController@front')->name('front');
     Route::get('/userlist', 'Guest\GuestController@userlist');
     Route::get('/userlist_detail/{id}', 'Guest\GuestController@userlist_detail')->name('userlist_detail');
-    Route::get('/contactform', 'Guest\GuestController@contactform');
+    Route::get('/contactform/{id}', 'Guest\GuestController@contactform');
     Route::post('/confirm', 'Guest\GuestController@confirm');
     Route::post('/complete', 'Guest\GuestController@complete');
 });

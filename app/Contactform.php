@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contactform extends Model
 {
     protected $fillable = [
-        'name', 'phone', 'email', 'address', 'type', 'equipment', 'comment',
+        'userlist_id', 'name', 'phone', 'email', 'address', 'type', 'equipment', 'comment',
         ];
         
         static $types = [

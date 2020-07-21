@@ -7,6 +7,12 @@ header {
   position: relative;
 }
 
+@media (max-width: 750px) {
+  header {
+    height: 4rem;
+  }
+}
+
 .title {
   font-family: fantasy;
   text-shadow: 2px 2px 10px #777;
@@ -15,6 +21,7 @@ header {
   left: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
+  color: inherit;
 }
 
 @media (max-width: 900px) {
@@ -33,6 +40,24 @@ li {
   padding-left: 20px;
   font-family: cursive;
   font-size: 25px;
+}
+
+@media (max-width: 750px) {
+  .nav-link {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 750px) {
+  .navbar-nav {
+    flex-direction: inherit !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .nav-item {
+    padding-left: 13px;
+  }
 }
 
 body {

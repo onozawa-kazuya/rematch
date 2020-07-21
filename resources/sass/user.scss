@@ -29,6 +29,9 @@ html {
 header {
     height: 12rem;
     position: relative;
+    @include sp {
+        height: 4rem;
+    }
 }
 
 .title {
@@ -39,6 +42,8 @@ header {
     left: 50%;
     transform: translateY(-50%);
     transform: translateX(-50%);
+    color: inherit;
+    
     @include tab {
     font-size: 40px;
     }
@@ -52,6 +57,24 @@ li {
     padding-left: 20px;
     font-family: cursive;
     font-size: 25px;
+}
+
+.nav-link {
+    @include sp {
+        font-size: 17px;
+    }
+}
+
+.navbar-nav {
+    @include sp {
+        flex-direction: inherit!important;
+    }
+}
+
+.nav-item {
+    @include sp {
+        padding-left: 13px;
+    }
 }
 
 body {
