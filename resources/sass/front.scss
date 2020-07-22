@@ -88,6 +88,7 @@ li {
 .navbar-nav {
     @include sp {
         flex-direction: inherit!important;
+        padding: revert!important;
     }
 }
 

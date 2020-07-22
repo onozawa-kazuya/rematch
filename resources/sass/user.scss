@@ -159,3 +159,39 @@ h4 {
         font-size: 30px;
     }
 }
+
+.table {
+    @include sp {
+        font-size: 13px;
+    }
+}
+
+.table th {
+    @include sp {
+        padding: 0!important;
+    }
+}
+
+.table td {
+    @include sp {
+        vertical-align: middle!important;
+        padding: 0!important;
+    }
+}
+
+.btn {
+    @include sp {
+        font-size: 15px!important;
+        padding: .300rem!important;
+    }
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-family: cursive!important;
+    font-size: 25px;
+    padding: 70px;
+}

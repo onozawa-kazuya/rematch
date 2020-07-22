@@ -93,6 +93,7 @@ li {
 @media (max-width: 750px) {
   .navbar-nav {
     flex-direction: inherit !important;
+    padding: revert !important;
   }
 }
 

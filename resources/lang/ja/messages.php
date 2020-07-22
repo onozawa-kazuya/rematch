@@ -18,4 +18,5 @@ return [
     'Remember Me'=>'ログイン情報を記憶する',
     'Forgot Your Password?'=>'パスワードをお忘れの方',
     'Reset Password'=>'パスワード再設定',
+    'Logout'=>'ログアウト',
     ];

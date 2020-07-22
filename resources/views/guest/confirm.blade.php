@@ -7,7 +7,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">お問い合わせ内容確認</div>
                     <div class="panel-body">
-                        
                     <p>誤りがなければ送信ボタンを押してください</p>
                     <table class="table">
                         <tr>
@@ -56,12 +55,9 @@
                         @endif
                     @endforeach
                     
-                    {!! Form::submit('戻る',['name'=> 'action', 'class' => 'btn']) !!}
-                    {!! Form::submit('送信',['name'=> 'action', 'class' => 'btn btn-primary']) !!}
-                    
+                    {!! Form::submit('送信',['name'=> 'action', 'class' => 'btn btn-secondary']) !!}
                     {!! Form::hidden('userlist_id', $contactform->userlist_id) !!}
                     {!! Form::close() !!}
-                    
                     </div>
                 </div>
             </div>

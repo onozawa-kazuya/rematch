@@ -28,56 +28,55 @@
     
     
     <header>
-      <h1 class="title">ReMatCh<a href="{{ url('guest/front') }}"></a></h1>
+        <h1 class="title">ReMatCh<a href="{{ url('guest/front') }}"></a></h1>
     </header>
-      
-        <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light p-4">
-          
-          <div class="navbar-collapse" id="Navbar">
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light p-4">
+        <div class="navbar-collapse" id="Navbar">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('guest/front') }}">HOME</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('guest/front') }}">ホーム</a>
+                </li>
               
-              <li class="nav-item">
-                <a class="nav-link" href="#">GUIDE</a>
-              </li>
+                <!--<li class="nav-item">-->
+                <!--    <a class="nav-link" href="#">GUIDE</a>-->
+                <!--</li>-->
               
                 @guest
-                  <!--ログイン-->
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
+                <!--ログイン-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
+                </li>
                 @else
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('user/mypage') }}">MY PAGE</a>
-                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user/mypage') }}">マイページ</a>
+                </li>
                   
-                  <!--ログアウト-->
-                  <li class="nav-item">
+                <!--ログアウト-->
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
+                    {{ __('Logout') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-                      @csrf
+                    @csrf
                     </form>
-                  </li>
+                </li>
                 @endguest
             </ul>
-          </div>
-        </nav>
+        </div>
+    </nav>
         
     <body>
-      <div id="wrapper">
-        @yield('content')
-    
-        <footer>
-          <h4 class="footer-text">ReMatCh<a href="#"></a>
-          <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
-          </h4>
-        </footer>
-      </div>
+        <div id="wrapper">
+            @yield('content')
+            <footer>
+                <h4 class="footer-text">ReMatCh<a href="#"></a>
+                <p class="copyright">Copyright © 2020 0722 All Rights Reserved.</p>
+                </h4>
+            </footer>
+        </div>
     </body>
-    
 </html>

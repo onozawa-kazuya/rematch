@@ -28,58 +28,51 @@
     
     
     <header>
-      <h1><a class="title" href="{{ url('guest/front') }}">ReMatCh</a></h1>
+        <h1><a class="title" href="{{ url('guest/front') }}">ReMatCh</a></h1>
     </header>
-      
-        <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
-          
-          <div class="navbar-collapse" id="Navbar">
+    <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
+        <div class="navbar-collapse" id="Navbar">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('user/mypage') }}">MY PAGE</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user/mypage') }}">マイページ</a>
+                </li>
               
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('user/profile') }}">PROFILE</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user/profile') }}">プロフィール</a>
+                </li>
               
                 @guest
-                  <!--ログイン-->
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
+                <!--ログイン-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
+                </li>
                 @else
-                  <!--ログアウト-->
-                  <li class="nav-item">
+                <!--ログアウト-->
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
+                      {{ __('messages.Logout') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
-                      @csrf
+                        @csrf
                     </form>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('withdrawal_confirm') }}">
-                      退会
-                    </a>
-                  </li>
-                  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('withdrawal_confirm') }}">退会</a>
+                </li>
                 @endguest
-                
             </ul>
-          </div>
-        </nav>
+        </div>
+    </nav>
         
     <body>
-      <div id="wrapper">
-        @yield('content')
-      </div>
+        <div id="wrapper">
+          @yield('content')
+        </div>
     </body>
     <footer>
-      <h4 class="text-center">ReMatCh<a href="#"></a>
-      <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
-      </h4>
+        <h4 class="text-center">ReMatCh<a href="#"></a>
+        <p class="copyright">Copyright © 2020 0624 All Rights Reserved.</p>
+        </h4>
     </footer>            
-    
 </html>

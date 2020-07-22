@@ -148,3 +148,39 @@ h4 {
   }
 }
 
+@media (max-width: 750px) {
+  .table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 750px) {
+  .table th {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .table td {
+    vertical-align: middle !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .btn {
+    font-size: 15px !important;
+    padding: 0.3rem !important;
+  }
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-family: cursive !important;
+  font-size: 25px;
+  padding: 70px;
+}
+
