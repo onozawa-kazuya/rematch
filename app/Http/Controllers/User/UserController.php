@@ -15,7 +15,10 @@ class UserController extends Controller
     public function mypage(Request $request) {
         
         $user = Auth::user();
-        $userlist_id = $user->userlist->id;
+        $userlist_id = null;
+        if($user->userlist !== null) {
+            $userlist_id = $user->userlist->id;
+        }
         $contacts = Contactform::where('userlist_id', $userlist_id)->paginate(5);
             
         return view('user.mypage', ['contacts' => $contacts]);
