@@ -15,7 +15,7 @@
                 
                 <div class="card-body">
                     @if(isset($userlist->image_path))
-                    <img src="{{ asset('storage/image/' . $userlist->image_path) }}" class="card-img-top">
+                    <img src="{{ $userlist->image_path }}" class="card-img-top">
                     @else
                     <p>No image</p>
                     @endif

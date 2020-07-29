@@ -8,6 +8,7 @@ use App\Userlist;
 use Illuminate\Support\Facades\Auth;
 use App\Contactform;
 use App\User;
+use Storage;
 
 class UserController extends Controller
 {
@@ -49,8 +50,8 @@ class UserController extends Controller
         
         //画像があれば保存
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $userlist->image_path = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $userlist->image_path = Storage::disk('s3')->url($path);
         } else {
             $userlist->image_path = null;
         }
